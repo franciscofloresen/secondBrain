@@ -43,7 +43,7 @@ JSON Output:
         try:
             # Llamada a Amazon Bedrock
             bedrock_response = bedrock.invoke_model(
-                modelId='anthropic.claude-haiku-4-5-20251001-v1:0',
+                modelId='us.anthropic.claude-haiku-4-5-20251001-v1:0',
                 body=json.dumps({
                     "anthropic_version": "bedrock-2023-05-31",
                     "max_tokens": 300,
