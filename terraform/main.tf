@@ -100,6 +100,7 @@ resource "aws_lambda_function" "api_lambda" {
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   runtime          = "python3.12"
   architectures    = ["arm64"]
+  timeout          = 15
 
   environment {
     variables = {
