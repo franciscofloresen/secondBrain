@@ -69,6 +69,22 @@ resource "aws_iam_role_policy" "dynamodb_policy" {
   })
 }
 
+resource "aws_iam_role_policy" "bedrock_policy" {
+  name = "bedrock_access"
+  role = aws_iam_role.lambda_role.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Action = [
+        "bedrock:InvokeModel"
+      ]
+      Effect   = "Allow"
+      Resource = "*"
+    }]
+  })
+}
+
 # 4. CloudWatch Log Group con retención
 resource "aws_cloudwatch_log_group" "lambda_log_group" {
   name              = "/aws/lambda/CerebroAPI"
